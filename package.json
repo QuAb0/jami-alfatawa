@@ -1,0 +1,14 @@
+{
+  "name": "fatwa-hub",
+  "version": "1.0.0",
+  "description": "جامع الفتاوى — محرك بحث ذكي في فتاوى المشايخ من مواقعهم الرسمية",
+  "private": true,
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --no-warnings server/start.js",
+    "crawl": "node --no-warnings server/crawler.js",
+    "demo": "node --no-warnings scripts/demo.js",
+    "export": "node --no-warnings scripts/export.js",
+    "import": "node --no-warnings scripts/import.js"
+  }
+}

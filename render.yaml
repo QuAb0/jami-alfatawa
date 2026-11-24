@@ -1,0 +1,17 @@
+# إعداد Render المجاني: New ← Blueprint ← اختر هذا المستودع
+services:
+  - type: web
+    name: fatwa-hub
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: "true"
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SITE_PASSWORD
+        sync: false
+      - key: NODE_VERSION
+        value: "22"

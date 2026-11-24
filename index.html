@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جامع الفتاوى</title>
+<meta name="description" content="اكتب سؤالك بأي صيغة، واقرأ جواب كل شيخ منقولاً من موقعه الرسمي مع رابط الفتوى الأصلية.">
+<meta name="theme-color" content="#060a12">
+<!--OG-->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#view">تخطَّ إلى المحتوى</a>
+<div class="sky" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <a href="/" class="logo" data-link aria-label="جامع الفتاوى، الرئيسية">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19e3a5"/><stop offset=".5" stop-color="#3cc8ff"/><stop offset="1" stop-color="#8b7bff"/></linearGradient></defs><path d="M20 2l5.3 7.2 8.9-1.4-1.4 8.9L40 20l-7.2 5.3 1.4 8.9-8.9-1.4L20 38l-5.3-7.2-8.9 1.4 1.4-8.9L0 20l7.2-5.3-1.4-8.9 8.9 1.4z" transform="translate(1 1) scale(.95)" fill="none" stroke="url(#lg)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="20" cy="20" r="5" fill="url(#lg)"/></svg>
+      <span>جامع الفتاوى</span>
+    </a>
+    <form class="bar-search" id="barSearch" role="search" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input id="barQ" name="q" placeholder="اسأل عن مسألة أخرى" autocomplete="off" aria-label="ابحث">
+    </form>
+    <nav class="nav" id="nav">
+      <a href="/sheikhs" data-link>المشايخ</a>
+      <a href="/abwab" data-link>الأبواب</a>
+      <a href="/saved" data-link>المحفوظات<b class="count" id="savedCount" hidden></b></a>
+    </nav>
+  </div>
+</header>
+
+<div id="demoBar" class="notice" hidden><span>تعرض الصفحة بيانات تجريبية. الفتاوى الحقيقية تظهر بعد تشغيل الجمع من لوحة الإدارة.</span></div>
+
+<main id="view" tabindex="-1"></main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-note"><strong>جامع الفتاوى ينقل ولا يفتي.</strong> كل جواب منقول بنصه من الموقع الرسمي للشيخ ومعه رابطه، والذكاء الاصطناعي يفهم السؤال ويبحث فقط.</p>
+    <nav>
+      <a href="/sheikhs" data-link>المصادر</a>
+      <a href="/abwab" data-link>الأبواب الفقهية</a>
+      <a href="/saved" data-link>المحفوظات</a>
+      <a href="/admin" data-link id="adminLink">الإدارة</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- المساعد -->
+<button class="helper-btn" id="botFab" aria-label="مساعد الموقع" aria-expanded="false" aria-controls="bot">
+  <span class="orb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor"/></svg></span>
+  <span>مساعد الموقع</span>
+</button>
+<section class="helper" id="bot" hidden aria-label="مساعد الموقع">
+  <header>
+    <span class="orb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor"/></svg></span>
+    <div><b>مساعد الموقع</b><small>متصل، يجيبك عن استخدام الموقع</small></div>
+    <button class="ib" id="botClose" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+  </header>
+  <div class="helper-log" id="botLog" aria-live="polite"></div>
+  <div class="helper-quick" id="botQuick"></div>
+  <form id="botForm"><input id="botIn" autocomplete="off" placeholder="اكتب سؤالك" maxlength="500" aria-label="رسالتك"><button aria-label="إرسال"><svg viewBox="0 0 24 24"><path d="M4 12h15M11 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></button></form>
+</section>
+
+<!-- المشاركة -->
+<dialog id="share" class="modal">
+  <form method="dialog" class="modal-in">
+    <div class="modal-head"><h3>مشاركة الفتوى</h3><button class="ib close" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+    <canvas id="shareCanvas" width="1080" height="1350" aria-label="بطاقة الفتوى"></canvas>
+    <div class="share-row">
+      <a id="shWa" target="_blank" rel="noopener" class="b b-wa">واتساب</a>
+      <a id="shX" target="_blank" rel="noopener" class="b">إكس</a>
+      <button type="button" id="shCopy" class="b">نسخ الرابط</button>
+      <button type="button" id="shImg" class="b">حفظ الصورة</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
